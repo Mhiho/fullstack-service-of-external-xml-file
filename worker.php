@@ -28,7 +28,7 @@ class Property
         $this->elemClass = $elem;
 
         foreach ($xml->lista->ksiazka as $value) {
-            $data                 = $value->$elem->__toString(); //tu moja magiczna metoda
+            $data = $value->$elem->__toString(); //tu moja magiczna metoda
             $this->result_array[] = $data;
         }
 
@@ -56,53 +56,7 @@ for ($i = 0; $i < $length; $i++) { //zeby nie musiec tego za kazdym razem zmieni
         'tytul' => $tytul[$i],
         'znizka' => $znizka[$i]
     );
-}
-;
-
-//poniżej mam wziętą pod uwagę baze księgarń, json wychodzi 8 razy większy bo ma jakieś 9 mega,
-//ale nie potrafię zrobić uchywtów - nazwać wartości i kluczy, żeby sprawnie to obrobić w AJAXie
-
-// class  Property {
-//         public $xmlClass;
-//         public $elemClass = '';
-//         public $first_array = array();
-//         public $result_array = array();
-//         public $data = '';
-//         public $data2 ='';
-//   public function __construct($xml,$elem) {
-//         $this->xmlClass=$xml;
-//         $this->elemClass=$elem;
-//
-//         foreach($xml->xpath('//*[@baza]') as $key=> $val) { //check $key here
-//       //$this->first_array[] = $val; not needed
-//       foreach($val->ksiazka as $value){
-//         $data = $value->$elem->__toString();
-//         $this->result_array[$key][] = $data; // add $key hear
-//       }
-//   }
-//
-//   }
-//   public function getResult() {
-//         return $this->result_array;
-//   }
-// }
-//
-//
-// $result_autor = new Property($xml,'autor');
-// $result_tytul = new Property($xml, 'tytul');
-// // $result_znizka = new Property($xml,'znizka');
-//
-//
-//
-// $autor = $result_autor->getResult();
-// $tytul = $result_tytul->getResult();
-// $znizka = $result_znizka->getResult();
-//
-// $final = array(
-//      'autor' => array($autor),
-//      'tytul' => array($tytul),
-//      'znizka'=> array($znizka)
-//  );
+};
 
 
 $json_result = '/opt/lampp/htdocs/zadanie/baza.json';
